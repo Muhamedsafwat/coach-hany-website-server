@@ -14,7 +14,7 @@ router.post("/", createApplication);
 //get all applications "only admin"
 router.get("/", protect("admin"), getAllApplications);
 //get one application "only admin"
-router.get("/:code", protect("admin", getApplication));
+router.get("/:code", protect("admin"), getApplication);
 //delete application "only admin"
 router.delete("/:code", protect("admin"), deleteApplication);
 

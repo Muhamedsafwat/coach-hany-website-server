@@ -81,8 +81,8 @@ const updateUser = asyncHandler(async (req, res) => {
 
     const updatedUser = await user.save();
     res.status(200).json({
-      name: updateUser.name,
-      measurements: updateUser.measurements,
+      name: updatedUser.name,
+      measurements: updatedUser.measurements,
     });
   } else {
     res.status(404);

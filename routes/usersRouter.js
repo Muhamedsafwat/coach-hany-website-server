@@ -22,6 +22,6 @@ router.get("/:id", protect("all"), getUser);
 //update user profile "user only"
 router.put("/:id", protect("user"), updateUser);
 //delete user profile "admin only"
-router.delete("/:id", protect("admin", deleteUser));
+router.delete("/:id", protect("admin"), deleteUser);
 
 module.exports = router;
