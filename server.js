@@ -5,6 +5,15 @@ const app = express();
 const PORT = process.env.PORT;
 const { notFound, errorHandler } = require("./middleware/errorHandlers");
 
+//configure cors
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+
 //import routers
 const plansRouter = require("./routes/plansRouter");
 const adminRouter = require("./routes/adminRouter");
@@ -16,7 +25,7 @@ const connectDB = require("./config/db");
 connectDB();
 
 //middlewares
-app.use(express.json());
+app.use(express.json({ limit: "35mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 

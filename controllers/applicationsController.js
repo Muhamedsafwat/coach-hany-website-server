@@ -19,6 +19,9 @@ const createApplication = asyncHandler(async (req, res) => {
     duration,
     analysis,
     notes,
+    photo,
+    measurements,
+    weightMethod,
   } = req.body;
 
   const application = await Application.create({
@@ -35,6 +38,9 @@ const createApplication = asyncHandler(async (req, res) => {
     duration,
     analysis,
     notes,
+    photo,
+    measurements,
+    weightMethod,
   });
 
   if (application) {

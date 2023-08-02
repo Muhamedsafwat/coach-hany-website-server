@@ -1,6 +1,14 @@
 const mongoose = require("mongoose");
 
-const foodSchema = mongoose.Schema({ name: String });
+const measurementSchema = mongoose.Schema({
+  weight: String,
+  neck: String,
+  chest: String,
+  arm: String,
+  waist: String,
+  hip: String,
+  thigh: String,
+});
 
 const applicationSchema = mongoose.Schema({
   name: String,
@@ -11,11 +19,14 @@ const applicationSchema = mongoose.Schema({
   height: String,
   target: String,
   activityRate: String,
-  preferredFood: [foodSchema],
-  unpreferredFood: [foodSchema],
+  preferredFood: String,
+  unpreferredFood: String,
   duration: String,
   analysis: String,
+  photo: String,
   notes: String,
+  measurements: measurementSchema,
+  weightMethod: String,
 });
 
 //export schema
