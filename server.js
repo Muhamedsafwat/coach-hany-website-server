@@ -19,6 +19,7 @@ const plansRouter = require("./routes/plansRouter");
 const adminRouter = require("./routes/adminRouter");
 const usersRouter = require("./routes/usersRouter");
 const applicationsRouter = require("./routes/applicationsRouter");
+const logoutUser = require("./utils/destroyToken");
 
 //connect to mongo db
 const connectDB = require("./config/db");
@@ -34,6 +35,7 @@ app.use("/api/plans", plansRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/applications", applicationsRouter);
+app.post("/api/logout", logoutUser);
 
 //error handlers
 app.use(notFound);

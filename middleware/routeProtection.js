@@ -12,16 +12,13 @@ const protect = function (role) {
         if (role == decodedToken.role || role == "all") {
           next();
         } else {
-          res.status(401);
-          throw new Error("Not authorized for this request");
+          res.status(401).send("Not authorized for this request");
         }
       } catch (error) {
-        res.status(401);
-        throw new Error("Not authorized, invalid token");
+        res.status(401).send("Invalid token");
       }
     } else {
-      res.status(401);
-      throw new Error("Not authorized, no token found");
+      res.status(401).send("No token found");
     }
   });
 };
