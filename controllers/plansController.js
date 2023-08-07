@@ -5,17 +5,19 @@ const Plans = require("../models/planModel");
 // POST => /api/plans
 // private "only admin"
 const createPlan = asyncHandler(async (req, res) => {
-  const { duration, price, features } = req.body;
+  const { duration, price, features, insteadOf } = req.body;
   const plan = await Plans.create({
     duration,
     price,
     features,
+    insteadOf,
   });
   if (plan) {
     res.status(201).json({
       duration: plan.duration,
       price: plan.price,
       features: plan.features,
+      insteadOf: plan.insteadOf,
     });
   } else {
     res.status(400);
@@ -44,12 +46,14 @@ const updatePlan = asyncHandler(async (req, res) => {
     plan.duration = req.body.duration || plan.duration;
     plan.price = req.body.price || plan.price;
     plan.features = req.body.features || plan.features;
+    plan.insteadOf = req.body.insteadOf || plan.insteadOf;
 
     const updatedPlan = await plan.save();
     res.status(200).json({
       duration: updatedPlan.duration,
       price: updatedPlan.price,
       features: updatedPlan.features,
+      insteadOf: updatedPlan.insteadOf,
     });
   } else {
     res.status(404);

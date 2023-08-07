@@ -8,6 +8,7 @@ const measurementSchema = mongoose.Schema({
   waist: String,
   hip: String,
   thigh: String,
+  date: String,
 });
 
 const applicationSchema = mongoose.Schema({

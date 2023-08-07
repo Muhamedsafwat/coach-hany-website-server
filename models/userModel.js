@@ -9,6 +9,7 @@ const measurementSchema = mongoose.Schema({
   waist: String,
   hip: String,
   thigh: String,
+  date: String,
 });
 
 const userSchema = mongoose.Schema({
@@ -21,6 +22,7 @@ const userSchema = mongoose.Schema({
     required: true,
   },
   name: String,
+  target: String,
   measurements: [measurementSchema],
 });
 

@@ -1,11 +1,10 @@
 const mongoose = require("mongoose");
 
-const featureSchema = mongoose.Schema({ details: String });
-
 const planSchema = mongoose.Schema({
   duration: String,
   price: String,
-  features: [featureSchema],
+  insteadOf: String,
+  features: [String],
 });
 
 //export schema

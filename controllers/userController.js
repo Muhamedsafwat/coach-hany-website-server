@@ -6,7 +6,7 @@ const generateToken = require("../utils/generateToken");
 // POST => /api/users
 // Private "only admin"
 const createUser = asyncHandler(async (req, res) => {
-  const { code, password, name, measurements } = req.body;
+  const { code, password, name, measurements, target } = req.body;
   const userExists = await User.findOne({ code });
   //check if code already used
   if (userExists) {
@@ -19,6 +19,7 @@ const createUser = asyncHandler(async (req, res) => {
     password,
     name,
     measurements,
+    target,
   });
   if (user) {
     res.status(201).send("User created successfully");
