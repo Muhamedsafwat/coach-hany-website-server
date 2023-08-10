@@ -64,3 +64,5 @@ app.use(errorHandler);
 
 //create server
 app.listen(PORT, () => console.log(`app running on port: ${PORT}`));
+
+module.exports = app;
