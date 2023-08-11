@@ -7,6 +7,7 @@ const generateToken = (res, userId, role) => {
 
   res.cookie("jwt", token, {
     maxAge: 5 * 24 * 60 * 60 * 1000,
+    secure: true,
     sameSite: "none",
   });
 };
