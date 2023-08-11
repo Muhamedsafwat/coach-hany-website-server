@@ -9,7 +9,7 @@ const { notFound, errorHandler } = require("./middleware/errorHandlers");
 const cors = require("cors");
 app.use(
   cors({
-    origin: "https://team-eldon.vercel.app/",
+    origin: "https://team-eldon.vercel.app",
     credentials: true,
   })
 );
@@ -17,10 +17,7 @@ app.use(
 // Add headers
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://team-eldon.vercel.app/"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "https://team-eldon.vercel.app");
   // Request methods you wish to allow
   res.setHeader(
     "Access-Control-Allow-Methods",
